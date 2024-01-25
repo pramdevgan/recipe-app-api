@@ -16,6 +16,7 @@ RUN python -m venv /py && \
     if [$DEV = "true"]; \
       then /py/bin/pip install -r /temp/requirements.dev.txt ; \
     fi && \
+    /py/bin/pip install flake8 && \
     rm -rf /temp && \
     adduser \
     --disabled-password \
