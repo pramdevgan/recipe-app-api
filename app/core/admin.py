@@ -43,5 +43,24 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
+class RecipeAdmin(admin.ModelAdmin):
+
+    list_display = ('title', 'time_minutes', 'price', 'link', 'display_tags')
+    list_filter = ('title', 'tags')
+    search_fields = ['title', 'tags']
+    list_display_links = ('title', )
+
+    def display_tags(self, obj):
+        return ", ".join([tag.name for tag in obj.tags.all()])
+    display_tags.short_description = 'Tags'
+
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'user')
+    search_fields = ['name']
+    list_filter = ('name', )
+
+
 admin.site.register(models.User, UserAdmin)
-admin.site.register(models.Recipe)
+admin.site.register(models.Recipe, RecipeAdmin)
+admin.site.register(models.Tag, TagAdmin)
