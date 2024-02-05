@@ -133,3 +133,10 @@ AUTH_USER_MODEL = 'core.User'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Recipe App APIs',
+    'DESCRIPTION': 'Create an advanced REST API for Recipe App with Python, Django REST Framework and Docker using Test Driven Development (TDD)',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
